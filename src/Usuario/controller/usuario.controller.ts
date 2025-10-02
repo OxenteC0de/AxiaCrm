@@ -15,7 +15,6 @@ export class UsuarioController {
          return this.usuarioService.findAll();  
        }
 
-
        @Post()
          create(@Body() userData: Partial<Usuario>) {  // Aceita qualquer Partial<User>
            return this.usuarioService.create(userData);  // Sem validação auto

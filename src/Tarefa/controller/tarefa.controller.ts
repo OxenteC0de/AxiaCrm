@@ -1,58 +1,60 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  HttpCode,
-  HttpStatus,
-  Param,
-  ParseIntPipe,
-  Post,
-  Put,
-} from '@nestjs/common';
-import { Tarefa } from '../entities/tarefa.entity';
+// Implementação futura
 
-@Controller('/tarefas')
-export class TarefaController {
-  constructor(private readonly tarefaService: TarefaService) {}
+// import {
+//   Body,
+//   Controller,
+//   Delete,
+//   Get,
+//   HttpCode,
+//   HttpStatus,
+//   Param,
+//   ParseIntPipe,
+//   Post,
+//   Put,
+// } from '@nestjs/common';
+// import { Tarefa } from '../entities/tarefa.entity';
 
-  @Get()
-  @HttpCode(HttpStatus.OK)
-  findAll(): Promise<Tarefa[]> {
-    return this.tarefaService.findAll();
-  }
+// @Controller('/tarefas')
+// export class TarefaController {
+//   constructor(private readonly tarefaService: TarefaService) {}
 
-  @Get('/:id')
-  @HttpCode(HttpStatus.OK)
-  findById(@Param('id', ParseIntPipe) id: number): Promise<Tarefa> {
-    return this.tarefaService.findById(id);
-  }
+//   @Get()
+//   @HttpCode(HttpStatus.OK)
+//   findAll(): Promise<Tarefa[]> {
+//     return this.tarefaService.findAll();
+//   }
 
-  @Get('cliente/:clienteId')
-  findByCliente(@Param('clienteId', ParseIntPipe) clienteId: number) {
-    return this.tarefaService.findByCliente(clienteId);
-  }
+//   @Get('/:id')
+//   @HttpCode(HttpStatus.OK)
+//   findById(@Param('id', ParseIntPipe) id: number): Promise<Tarefa> {
+//     return this.tarefaService.findById(id);
+//   }
 
-  @Get('usuario/:usuarioId')
-  findByUsuario(@Param('usuarioId', ParseIntPipe) usuarioId: number) {
-    return this.tarefaService.findByUsuario(usuarioId);
-  }
+//   @Get('cliente/:clienteId')
+//   findByCliente(@Param('clienteId', ParseIntPipe) clienteId: number) {
+//     return this.tarefaService.findByCliente(clienteId);
+//   }
 
-  @Post()
-  @HttpCode(HttpStatus.CREATED)
-  create(@Body() tarefa: Tarefa): Promise<Tarefa> {
-    return this.tarefaService.create(tarefa);
-  }
+//   @Get('usuario/:usuarioId')
+//   findByUsuario(@Param('usuarioId', ParseIntPipe) usuarioId: number) {
+//     return this.tarefaService.findByUsuario(usuarioId);
+//   }
 
-  @Put()
-  @HttpCode(HttpStatus.OK)
-  update(@Body() tarefa: Tarefa): Promise<Tarefa> {
-    return this.tarefaService.update(tarefa);
-  }
+//   @Post()
+//   @HttpCode(HttpStatus.CREATED)
+//   create(@Body() tarefa: Tarefa): Promise<Tarefa> {
+//     return this.tarefaService.create(tarefa);
+//   }
 
-  @Delete(':id')
-  @HttpCode(HttpStatus.NO_CONTENT)
-  delete(@Param('id', ParseIntPipe) id: number) {
-    return this.tarefaService.remove(id);
-  }
-}
+//   @Put()
+//   @HttpCode(HttpStatus.OK)
+//   update(@Body() tarefa: Tarefa): Promise<Tarefa> {
+//     return this.tarefaService.update(tarefa);
+//   }
+
+//   @Delete(':id')
+//   @HttpCode(HttpStatus.NO_CONTENT)
+//   delete(@Param('id', ParseIntPipe) id: number) {
+//     return this.tarefaService.remove(id);
+//   }
+// }

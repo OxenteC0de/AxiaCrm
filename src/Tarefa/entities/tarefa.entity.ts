@@ -1,30 +1,32 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, UpdateDateColumn } from "typeorm";
-import { IsNotEmpty } from "class-validator";
-import { Cliente } from "../../cliente/entities/cliente.entity";
-import { Usuario } from "../../usuario/entities/usuario.entity";
 
-@Entity({ name: "tb_tarefas "})
-export class Tarefa {
+//Implementação futura
+// import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, UpdateDateColumn } from "typeorm";
+// import { IsNotEmpty } from "class-validator";
+// import { Cliente } from "../../cliente/entities/cliente.entity";
+// import { Usuario } from "../../usuario/entities/usuario.entity";
 
-    @PrimaryGeneratedColumn()
-    id: number
+// @Entity({ name: "tb_tarefas "})
+// export class Tarefa {
 
-    @IsNotEmpty()
-    @Column({ length: 100, nullable: false })
-    tipo: string
+//     @PrimaryGeneratedColumn()
+//     id: number
 
-    @IsNotEmpty()
-    @Column({ length: 1000, nullable: false })
-    descricao: string
+//     @IsNotEmpty()
+//     @Column({ length: 100, nullable: false })
+//     tipo: string
 
-    @UpdateDateColumn()
-    data: Date
+//     @IsNotEmpty()
+//     @Column({ length: 1000, nullable: false })
+//     descricao: string
 
-    @IsNotEmpty()
-    @ManyToOne(() => Cliente, (cliente) => cliente.tarefas, {onDelete: 'CASCADE'})
-    cliente: Cliente
+//     @UpdateDateColumn()
+//     data: Date
 
-    @IsNotEmpty()
-    @ManyToOne(() => Usuario, (usuario) => usuario.tarefas, {onDelete: 'CASCADE'})
-    usuario: Usuario
-}
+//     @IsNotEmpty()
+//     @ManyToOne(() => Cliente, (cliente) => cliente.tarefas, {onDelete: 'CASCADE'})
+//     cliente: Cliente
+
+//     @IsNotEmpty()
+//     @ManyToOne(() => Usuario, (usuario) => usuario.tarefas, {onDelete: 'CASCADE'})
+//     usuario: Usuario
+// }

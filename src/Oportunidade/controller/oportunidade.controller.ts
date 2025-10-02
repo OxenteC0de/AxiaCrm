@@ -6,6 +6,7 @@ import {
   Delete,
   Param,
   Body,
+  Patch,
 } from '@nestjs/common';
 import { Oportunidade } from '../entities/oportunidade.entity';
 import { OportunidadeService } from '../service/oportunidade.service';
@@ -40,5 +41,11 @@ export class OportunidadeController {
   @Delete(':id')
   remove(@Param('id') id: number): Promise<void> {
     return this.oportunidadeService.remove(id);
+  }
+
+  //Metodo adicional
+  @Patch(':id/ativar')
+  async ativarStatus(@Param('id') id: number) {
+    return this.oportunidadeService.ativarStatus(id);
   }
 }

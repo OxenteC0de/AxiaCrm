@@ -22,10 +22,14 @@ export class OportunidadeService {
   }
 
   async findOne(id: number): Promise<Oportunidade> {
-    return this.oportunidadeRepository.findOne({
+    const oportunidade = await this.oportunidadeRepository.findOne({
       where: { id },
       relations: ['cliente', 'usuario'],
     });
+    if (!oportunidade) {
+      throw new Error(`Oportunidade com id ${id} não encontrada`);
+    }
+    return oportunidade;
   }
 
   async update(
@@ -38,5 +42,17 @@ export class OportunidadeService {
 
   async remove(id: number): Promise<void> {
     await this.oportunidadeRepository.delete(id);
+  }
+
+  //Metodo Adicional
+  async ativarStatus(id: number): Promise<Oportunidade> {
+    const oportunidade = await this.findOne(id);
+
+    if (oportunidade.status === false) {
+      oportunidade.status = true;
+      await this.oportunidadeRepository.save(oportunidade)
+    }
+
+    return oportunidade;
   }
 }

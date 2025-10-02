@@ -8,6 +8,6 @@ import { OportunidadeController } from './controller/oportunidade.controller';
   imports: [TypeOrmModule.forFeature([Oportunidade])],
   providers: [OportunidadeService],
   controllers: [OportunidadeController],
-  exports: [],
+  exports: [OportunidadeService],
 })
-export class OportunidadeModule { }
+export class OportunidadeModule {}
