@@ -1,1 +1,1 @@
-export class TarefaController {}
+export class TarefaService {}
