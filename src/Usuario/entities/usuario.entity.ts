@@ -1,29 +1,43 @@
-import { Column, Entity, PrimaryGeneratedColumn,} from "typeorm";
-import { IsEmail, IsNotEmpty } from "class-validator"
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { IsEmail, IsString, MinLength, IsOptional, IsEnum } from "class-validator";
 
-@Entity({name: 'tb_usuario'})
-export class Usuario {
-  @PrimaryGeneratedColumn()
-  id: number
 
-  @IsNotEmpty()
-  @Column({length: 255, nullable: false})
-  nome: string
+  export enum UsuarioCargo {
+       ADMIN = 'admin',
+       USUARIO = 'usuario',
+       MODERADOR = 'moderador',
+     }
+@Entity('usuario')
+     export class Usuario {
+       @PrimaryGeneratedColumn()
+       id: number;
 
-  @IsEmail()
-  @IsNotEmpty()
-  @Column({length: 255, nullable: false})
-  email: string
 
-  @IsNotEmpty()
-  @Column({length: 50, nullable: false})
-  senha: string
+       @Column({ unique: true })
+       @IsString()
+       @IsEmail()
+       email: string;
 
-  @Column({length: 5000})
-  foto: string
+       @Column()
+       @IsString()
+       @MinLength(3)
+       nome: string;
 
-  @IsNotEmpty()
-  @Column({length: 100, nullable: false})
-  cargo:
+       @Column()
+       @MinLength(8)
+       senha: string;  
 
-}
+       @Column({ nullable: true })  // Opcional, para URL/path da foto
+       @IsString()
+       @IsOptional()
+       foto?: string;
+
+       @Column({
+         type: 'enum',
+         enum: UsuarioCargo,
+         default: UsuarioCargo.USUARIO,  
+       })
+    
+       cargo: UsuarioCargo;
+     }
+     
