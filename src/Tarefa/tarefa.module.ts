@@ -8,6 +8,4 @@ import { Tarefa } from './entities/tarefa.entity';
   controllers: [],
   exports: [],
 })
-export class TarefaModule {
-  
-}
+export class TarefaModule {}

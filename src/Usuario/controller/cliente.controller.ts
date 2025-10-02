@@ -1,3 +1,1 @@
-export class UsuarioController {
-  
-}
+export class UsuarioController {}
