@@ -24,10 +24,10 @@ Tarefa (Atividades e Interação): Cadastro de tarefas vinculadas a clientes e u
 
 🗂️ **Estrutura de Dados (Entidades)**
 
-Usuário:	id, nome, email, senha, foto, cargo.
-Cliente:	id, nome, email, telefone, statusContrato	usuario_id.
-Oportunidade:	id, título, valor, status, data	cliente_id usuario_id.
-Tarefa (Implementação Futura):	id, tipo, descrição, data	cliente_id, usuario_id.
+* Usuário:	id, nome, email, senha, foto, cargo.
+* Cliente:	id, nome, email, telefone, statusContrato	usuario_id.
+* Oportunidade:	id, título, valor, status, data	cliente_id usuario_id.
+* Tarefa (Implementação Futura):	id, tipo, descrição, data	cliente_id, usuario_id.
 
 📊 **Diagrama da Entidade**
 <img src="assets/diagrama.png" alt="Diagrama de Entidades do AxiaCRM" width="600"/>
@@ -35,27 +35,26 @@ Tarefa (Implementação Futura):	id, tipo, descrição, data	cliente_id, usuario
 
 🛠️ **Tecnologias Utilizadas**
 
-Node.js
-NestJS (Framework para backend)
-TypeORM (Mapeamento Objeto-Relacional)
-TypeScript
-PostgreSQL (Banco de dados principal, adaptável via TypeORM)
-Passport/JWT (para Autenticação e Autorização)
+* Node.js
+* NestJS (Framework para backend)
+* TypeORM (Mapeamento Objeto-Relacional)
+* TypeScript
+* PostgreSQL (Banco de dados principal, adaptável via TypeORM)
+* Passport/JWT (para Autenticação e Autorização)
 
 📦 **Pré-requisitos**
 
 Certifique-se de ter instalado em sua máquina:
 
-Git
-Node.js (Versão LTS recomendada)
-npm ou Yarn
-PostgreSQL (Servidor de banco de dados)
+* Git
+* Node.js (Versão LTS recomendada)
+* npm ou Yarn
+* PostgreSQL (Servidor de banco de dados)
 
 ⚙️ **Como Rodar o Projeto**
 
 1. Clonar repositório
-git clone https://github.com/OxenteC0de/AxiaCrm.git
-cd AxiaCRM
+```git clone https://github.com/OxenteC0de/AxiaCrm.gitcd AxiaCRM```
 
 2. Instalar as dependências
 npm install
@@ -64,6 +63,7 @@ npm install
 
 No arquivo app.module.ts, configure suas credenciais:
 
+  ```typescript
 	TypeOrmModule.forRoot({
   type: 'postgres',
   host: 'localhost',
@@ -73,20 +73,20 @@ No arquivo app.module.ts, configure suas credenciais:
   database: 'nome_do_banco',
   autoLoadEntities: true,
   synchronize: true, // apenas em ambiente de desenvolvimento
-}),
+}),```
 
 
 4. Rodar o projeto
-npm run start:dev
+```npm run start:dev```
 
 O servidor estará disponível em: 👉 http://localhost:4000
 
 👥 **Equipe Responsável**
 
-David:	Service de Cliente, Service de Entidades e README.
-Dilvani:	Controller e Module de Cliente.
-Janaina:	Entidade Usuário, configuração do Insomnia e README.
-Karine:	Service, Controller e Module de Usuário.
-Tauane:	Module de Oportunidade e Scrum Master.
-William:	Base do projeto, Entidade, Service e Controller de Oportunidade.
-Winnie:	Entidade Cliente e configuração do app.module.ts.
+* David:	Service de Cliente, Service de Entidades e README.
+* Dilvani:	Controller e Module de Cliente.
+* Janaina:	Entidade Usuário, configuração do Insomnia e README.
+* Karine:	Service, Controller e Module de Usuário.
+* Tauane:	Module de Oportunidade e Scrum Master.
+* William:	Base do projeto, Entidade, Service e Controller de Oportunidade.
+* Winnie:	Entidade Cliente e configuração do app.module.ts.
