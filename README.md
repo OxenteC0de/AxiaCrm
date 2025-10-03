@@ -1,5 +1,5 @@
 <p align="center">
-<img src="assets/logo01.png" alt="Logo AxiaCRM" width="180"/>
+<img src="./test/assets/logo01.png" alt="Logo AxiaCRM" width="180"/>
 </p>
 
 ### 📅 Data
@@ -43,7 +43,7 @@ Tarefa (Atividades e Interação): Cadastro de tarefas vinculadas a clientes e u
 ---
 
 📊 **Diagrama da Entidade**
-<img src="assets/diagrama.png" alt="Diagrama de Entidades do AxiaCRM" width="600"/>
+<img src="./test/assets/diagrama.png" alt="Diagrama de Entidades do AxiaCRM" width="600"/>
 </p>
 
 ---
@@ -79,6 +79,7 @@ cd AxiaCRM
 ```
 
 2. Instalar as dependências
+
 npm install
 
 3. Configurar o banco de dados
@@ -99,6 +100,7 @@ No arquivo app.module.ts, configure suas credenciais:
 ```
 
 4. Rodar o projeto
+
 npm run start:dev
 
 O servidor estará disponível em: 👉 http://localhost:4000
