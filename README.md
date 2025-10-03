@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./test/assets/logo01.png" alt="Logo AxiaCRM" width="180"/>
+<img src="./test/assets/Logo01.png" alt="Logo AxiaCRM" width="180"/>
 </p>
 
 ### 📅 Data
@@ -43,6 +43,7 @@ Tarefa (Atividades e Interação): Cadastro de tarefas vinculadas a clientes e u
 ---
 
 📊 **Diagrama da Entidade**
+
 <img src="./test/assets/diagrama.png" alt="Diagrama de Entidades do AxiaCRM" width="600"/>
 </p>
 
