@@ -48,4 +48,10 @@ export class OportunidadeController {
   async ativarStatus(@Param('id') id: number) {
     return this.oportunidadeService.ativarStatus(id);
   }
+  
+  // Desativar status
+  @Patch(':id/desativar')
+  async desativarStatus(@Param('id') id: number): Promise<Oportunidade> {
+    return this.oportunidadeService.desativarStatus(id);
+  }
 }

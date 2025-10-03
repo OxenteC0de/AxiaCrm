@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Oportunidade } from '../entities/oportunidade.entity';
@@ -44,15 +44,34 @@ export class OportunidadeService {
     await this.oportunidadeRepository.delete(id);
   }
 
-  //Metodo Adicional
+  //Metodo Adicionais para ativar e desativar
   async ativarStatus(id: number): Promise<Oportunidade> {
     const oportunidade = await this.findOne(id);
 
-    if (oportunidade.status === false) {
-      oportunidade.status = true;
-      await this.oportunidadeRepository.save(oportunidade)
+    // Verifica se já está ativo
+    if (oportunidade.status === true) {
+      throw new HttpException(
+        'Oportunidade já está ativa',
+        HttpStatus.BAD_REQUEST,
+      );
     }
 
-    return oportunidade;
+    // Ativa o status
+    oportunidade.status = true;
+    return await this.oportunidadeRepository.save(oportunidade);
+  }
+  //Metodo para desativar
+  async desativarStatus(id: number): Promise<Oportunidade> {
+    const oportunidade = await this.findOne(id);
+
+    if (oportunidade.status === false) {
+      throw new HttpException(
+        'Oportunidade já está inativa',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    oportunidade.status = false;
+    return await this.oportunidadeRepository.save(oportunidade);
   }
 }
