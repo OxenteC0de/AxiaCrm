@@ -16,6 +16,9 @@ export class Oportunidade {
   @Column({ length: 100 })
   titulo: string;
 
+  @Column({ nullable: true, length: 3500})
+  descricao?: string;
+
   @Column('decimal', { precision: 10, scale: 2 })
   valor: number;
 
